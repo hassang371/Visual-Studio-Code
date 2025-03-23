@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>Early Disease Detection</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Upload Section -->
+        <section class="upload-section">
+            <h2>Upload Data</h2>
+            <div class="input-group">
+                <label for="healthData">Health Data (CSV):</label>
+                <input type="file" id="healthData" accept=".csv">
+            </div>
+            <div class="input-group">
+                <label for="wearableData">Wearable Data (CSV):</label>
+                <input type="file" id="wearableData" accept=".csv" multiple>
+            </div>
+        </section>
+
+        <!-- Train Model Button -->
+        <section class="action-section">
+            <h2>Train the Model</h2>
+            <form id="trainingForm" onsubmit="trainModel(event)" enctype="multipart/form-data">
+                <button type="submit" class="train-btn">🚀 Train Model</button>
+            </form>
+            <!-- Loading Spinner Section -->
+            <div id="spinnerSection" class="hidden" style="display: none;">
+                <div class="spinner"></div>
+                <p id="spinnerMessage">Training the model... Please wait.</p>
+                <progress id="trainingProgress" value="0" max="100"></progress>
+            </div>
+        </section>
+
+        <!-- Output Section -->
+        <section id="output" class="hidden">
+            <h2>Model Results</h2>
+            <div id="visualizations" class="visualization-container"></div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
